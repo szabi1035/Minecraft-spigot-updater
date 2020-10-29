@@ -2,6 +2,9 @@ import requests
 import os
 from sys import platform
 slash = ""
+
+
+
 def decideslash(): #decides whether to use forwardslash or backslash according to filepath in different operating systems
     global slash
     if platform == "linux" or platform == "linux2":
