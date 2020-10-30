@@ -26,7 +26,7 @@ when it's done,double click **run-spigot-server.bat** and follow any prompts giv
 
 On **Linux**:
 copy the contents of the *Linux* subfolder to the place where you want your server/where your server is  
-**First*** You have to make the scripts executable by cd'ing to the directory and opening a terminal then typing:
+**First** You have to make the scripts executable by cd'ing to the directory and opening a terminal then typing:
 ```bash
 chmod +x update.sh
 chmod +x run-spigot-server-.sh
