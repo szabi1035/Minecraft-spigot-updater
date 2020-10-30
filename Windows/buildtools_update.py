@@ -29,13 +29,11 @@ import os
 import subprocess
 from sys import platform
 import sys
-
 ###############################
 #       Global Variables      #
 ###############################
 slash = ""
 currentDirectory = ""
-serverDirectory = ""
 systemType = ""
 ##############################
 #       Main functions       #
@@ -61,28 +59,15 @@ def get_cwd():
     currentDirectory = os.getcwd() #gets the Current Working Directory
     print("This script is located in " + currentDirectory + "\nIt will be used as the install directory!")
 
-def pathconf():
-    global currentDirectory
-    global serverDirectory
-
-    answer = input("Would you like to change that? (Y/N) ")
-    if answer == "Y":
-        serverDirectory = input("Input path to the server directory: ")
-    elif answer == "N":
-        serverDirectory = currentDirectory
-    else:
-        print("Invalid input!")
-        pathconf()
-
 def slashcheck():
-    global serverDirectory
-    if serverDirectory[-1] != slash:
-        serverDirectory = serverDirectory + slash
+    global currentDirectory
+    if currentDirectory[-1] != slash:
+        currentDirectory = currentDirectory + slash
 
 def download_file():
     url = "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar"
 
-    print("Downloading BuildTools.jar to " + serverDirectory)
+    print("Downloading BuildTools.jar to " + currentDirectory)
     r = requests.get(url) # create the HTTP response object
     rstr = str(r) #makes it into a string (debug purposes,and feedback for the user)
 
@@ -93,7 +78,7 @@ def download_file():
         print("HTTP Response code abnormal! Aborting!!!\nIF THIS ISSUE PERSISTS github.com/szabi1035/Minecraft-spigot-updater/issues")
         sys.exit(0)
 
-    with open(serverDirectory + "BuildTools.jar",'wb') as f: 
+    with open(currentDirectory + "BuildTools.jar",'wb') as f: 
         # Saving received content as a jar file in 
         # binary format 
         # write the contents of the response (r.content) 
@@ -108,26 +93,24 @@ def rename_serverfile():
     for filename in filenames:
         if "spigot-1." in filename:
             print("Server file found: " + filename + "\nRenaming " + filename + " to server.jar")
-            os.rename(serverDirectory + slash + filename, serverDirectory + slash + "server.jar")
+            os.rename(currentDirectory + slash + filename, currentDirectory + slash + "server.jar")
 
-def runprompt():
+def run_prompt():
     answer = input("Would you like to run the server now? (Y/N) ")
     if answer == "Y":
-        runserver.py
+        os.system('python3 runserver.py')
     elif answer == "N":
         sys.exit(0)
     else:
         print("Invalid input!")
-        runprompt()
-
+        run_prompt()
 ##########################
 #       Main execs       #
 ##########################
 systemtypef()
 get_cwd()
-pathconf()
 slashcheck()
 download_file()
 run_buildtoolsjar()
 rename_serverfile()
-runprompt()
+run_prompt()
