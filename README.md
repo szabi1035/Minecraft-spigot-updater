@@ -4,9 +4,9 @@
  
 ## Requirements
 
-On **Windows**:
-https://www.python.org/downloads/
-https://www.java.com/de/download/manual.jsp
+On **Windows**:  
+	https://www.python.org/downloads/  
+	https://www.java.com/de/download/manual.jsp
 
 ```shell
 pip install requests
