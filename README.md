@@ -15,6 +15,7 @@ On **Linux**:
 ```bash
 sudo apt install python3
 sudo apt install default-jre
+sudo apt install python3-pip
 pip3 install requests
 ```
 ## Usage
