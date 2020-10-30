@@ -18,13 +18,13 @@ sudo apt install default-jre
 pip3 install requests
 ```
 ## Usage
-On **Windows**:
+On **Windows**:  
 copy the contents of the *Windows* subfolder to the place where you want your server/where your server is  
 double click the **update.bat** and follow any prompts given  
 when it's done,double click **run-spigot-server.bat** and follow any prompts given.  
 ***Your server should be starting up. If not, https://github.com/szabi1035/Minecraft-spigot-updater/issues***  
 
-On **Linux**:
+On **Linux**:  
 copy the contents of the *Linux* subfolder to the place where you want your server/where your server is  
 **First** You have to make the scripts executable by cd'ing to the directory and opening a terminal then typing:
 ```bash
