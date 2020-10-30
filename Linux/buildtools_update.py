@@ -29,7 +29,6 @@ import os
 import subprocess
 from sys import platform
 import sys
-
 ###############################
 #       Global Variables      #
 ###############################
@@ -113,7 +112,7 @@ def rename_serverfile():
 def runprompt():
     answer = input("Would you like to run the server now? (Y/N) ")
     if answer == "Y":
-        runserver.py
+        os.system('runserver.py')
     elif answer == "N":
         sys.exit(0)
     else:
