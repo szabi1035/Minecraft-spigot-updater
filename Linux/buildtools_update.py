@@ -109,7 +109,7 @@ def rename_serverfile():
             print("Server file found: " + filename + "\nRenaming " + filename + " to server.jar")
             os.rename(serverDirectory + slash + filename, serverDirectory + slash + "server.jar")
 
-def runprompt():
+def run_prompt():
     answer = input("Would you like to run the server now? (Y/N) ")
     if answer == "Y":
         os.system('runserver.py')
@@ -117,8 +117,7 @@ def runprompt():
         sys.exit(0)
     else:
         print("Invalid input!")
-        runprompt()
-
+        run_prompt()
 ##########################
 #       Main execs       #
 ##########################
@@ -129,4 +128,4 @@ slashcheck()
 download_file()
 run_buildtoolsjar()
 rename_serverfile()
-runprompt()
+run_prompt()
